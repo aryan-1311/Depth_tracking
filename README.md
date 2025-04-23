@@ -1,10 +1,6 @@
-# Depth Tracking: 3D Object Detection and Depth Estimation
+# 3D Object Detection and Depth Estimation System
 
-This repository implements a 3D object detection system with depth estimation and bird's eye view (BEV) visualization. It uses **YOLOv11** for object detection and **Depth Anything v2** for depth estimation to process video input (from a webcam or file) and generate an output video with visualizations of detected objects, their estimated 3D bounding boxes, depth maps, and BEV representations.
-
-## Repository
-
-- **GitHub**: https://github.com/aryan-1311/Depth_tracking
+This project implements a 3D object detection system with depth estimation and bird's eye view (BEV) visualization. It uses **YOLOv11** for object detection and **Depth Anything v2** for depth estimation to process video input (from a webcam or file) and generate an output video with visualizations of detected objects, their estimated 3D bounding boxes, depth maps, and BEV representations.
 
 ## Prerequisites
 
@@ -18,42 +14,31 @@ This repository implements a 3D object detection system with depth estimation an
 
 ## Installation
 
-1. **Clone the Repository**:
-
-   ```bash
-   git clone https://github.com/aryan-1311/Depth_tracking.git
-   cd Depth_tracking
-   ```
+1. **Extract the Folder**:
+   - Copy the shared folder to your desired location on your computer.
+   - Navigate to the folder (e.g., `cd path/to/folder` in a terminal).
 
 2. **Set Up a Virtual Environment** (recommended):
-
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 3. **Install Dependencies**:
-
    - Install the required Python packages listed in `requirements.txt`:
-
      ```bash
      pip install -r requirements.txt
      ```
-
    - **Note**: Ensure you have a compatible version of PyTorch with CUDA support if using a GPU. You may need to install PyTorch separately based on your CUDA version:
-
      ```bash
      pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
      ```
-
-     Check the PyTorch website for the appropriate command for your system.
+     Check the [PyTorch website](https://pytorch.org/get-started/locally/) for the appropriate command for your system.
 
 4. **Verify Installation**:
-
    - Ensure all dependencies are installed correctly by running:
-
      ```bash
-     python -c "import torch, cv2, numpy, ultralytics, timm, filterpy; print('All dependencies installed')"
+     python -c "import torch, cv2, numpy, ultralytics, timm, filterpy, transformers; print('All dependencies installed')"
      ```
 
 ## Project Structure
@@ -71,14 +56,12 @@ This repository implements a 3D object detection system with depth estimation an
 ### Running the System
 
 1. **Prepare Input**:
-
    - **Webcam**: Use the default webcam by setting `source = 0` in `run.py`.
    - **Video File**: Specify the path to a video file (e.g., `source = "path/to/video.mp4"`).
    - **Camera Parameters** (optional): Provide a JSON file with camera intrinsic and extrinsic parameters (see `load_camera_params.py`). If not provided, default parameters are used.
 
 2. **Configure Settings**:
-
-   - Open `run.py` and modify the configuration variables in the `main()` function as needed:
+   - Open `run.py` in a text editor and modify the configuration variables in the `main()` function as needed:
      - `source`: Input source (webcam index or video file path, default: `0`).
      - `output_path`: Path to save the output video (e.g., `"output_me_3.mp4"`).
      - `yolo_model_size`: YOLOv11 model size (`nano`, `small`, `medium`, `large`, `extra`, default: `large`).
@@ -93,39 +76,30 @@ This repository implements a 3D object detection system with depth estimation an
      - `camera_params_file`: Path to camera parameters JSON file (default: `None`).
 
 3. **Execute the Script**:
-
-   - Run the main script:
-
+   - Navigate to the folder in a terminal and run:
      ```bash
      python run.py
      ```
-
    - The system will:
-
      - Load the specified models.
      - Process the input video or webcam feed.
      - Display three windows: **Object Detection**, **Depth Map**, and **3D Object Detection** (with BEV if enabled).
      - Save the output video to the specified `output_path`.
 
 4. **Interact with the Program**:
-
    - Press `q` or `Esc` to exit the program.
    - The output video will be saved to the specified path upon exit.
 
 ### Example Commands
 
 - **Process a video file**:
-
   - Edit `run.py` to set `source = "path/to/video.mp4"` and `output_path = "output.mp4"`, then run:
-
     ```bash
     python run.py
     ```
 
 - **Use webcam**:
-
   - Ensure `source = 0` in `run.py`, then run:
-
     ```bash
     python run.py
     ```
@@ -142,6 +116,4 @@ This repository implements a 3D object detection system with depth estimation an
   - **Object Detection**: Shows 2D bounding boxes and object labels.
   - **Depth Map**: Displays the colorized depth map with enhanced contrast and edges.
   - **3D Object Detection**: Shows the final visualization with 3D boxes and BEV.
-
-
 
