@@ -1,4 +1,4 @@
-Depth Tracking: 3D Object Detection and Depth Estimation
+<h1><b>Depth Tracking: 3D Object Detection and Depth Estimation</h1></b>
 This repository implements a 3D object detection system with depth estimation and bird's eye view (BEV) visualization. It uses YOLOv11 for object detection and Depth Anything v2 for depth estimation to process video input (from a webcam or file) and generate an output video with visualizations of detected objects, their estimated 3D bounding boxes, depth maps, and BEV representations.
 Repository
 
